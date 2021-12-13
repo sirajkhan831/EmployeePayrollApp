@@ -1,8 +1,9 @@
 package com.bridgelabz.employeepayrollapp.controller;
 
 import com.bridgelabz.employeepayrollapp.dto.EmployeeDto;
-import com.bridgelabz.employeepayrollapp.service.PayrollService;
+import com.bridgelabz.employeepayrollapp.service.EmployeePayrollService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -10,10 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = {"/payroll"})
-public class PayrollController {
+public class EmployeePayrollController {
 
     @Autowired
-    PayrollService service;
+    EmployeePayrollService service;
 
     @GetMapping(value = {"/hello"})
     public String sayHello() {
@@ -32,7 +33,7 @@ public class PayrollController {
         return service.getEmployees();
     }
 
-    /*
+
     @PutMapping("/update/{id}")
     public String updateEmployee(
             @PathVariable int id,
@@ -40,7 +41,7 @@ public class PayrollController {
     ) {
         return service.updateEmployee(id, employeeDto);
     }
-    */
+
 
     @DeleteMapping("/delete/{id}")
     public String deleteEmployee(
