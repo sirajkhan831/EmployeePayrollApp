@@ -23,7 +23,7 @@ public class EmployeePayrollService {
     @Autowired
     ModelMapper mapper;
 
-    public String addEmp(EmployeeDto employeeDto) {
+    public String addEmployee(EmployeeDto employeeDto) {
         EmployeeEntity employeeEntity = mapper.map(employeeDto, EmployeeEntity.class);
         employeePayrollRepository.save(employeeEntity);
         return EMP_ADDED_SUCCESSFULLY;
@@ -33,7 +33,7 @@ public class EmployeePayrollService {
         List<EmployeeDto> employees = new ArrayList<>();
         for (EmployeeEntity entity : employeePayrollRepository.findAll()) {
             EmployeeDto dto = mapper.map(entity, EmployeeDto.class);
-            dto.setEid(entity.getEid());
+            dto.setEmpId(entity.getEid());
             employees.add(dto);
         }
         return employees;
@@ -44,9 +44,9 @@ public class EmployeePayrollService {
         return EMP_DELETED_SUCCESSFULLY;
     }
 
-    public String updateEmployee(int id, EmployeeDto employeeDto) {
+    public String updateEmployee(EmployeeDto employeeDto, int id) {
         EmployeeEntity employeeEntity = mapper.map(employeeDto, EmployeeEntity.class);
-        employeeEntity.setEid(employeeDto.getEid());
+        employeeEntity.setEid(id);
         employeePayrollRepository.save(employeeEntity);
         return EMP_UPDATED_SUCCESSFULLY;
     }

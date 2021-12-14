@@ -12,7 +12,7 @@ import java.util.List;
  * @since 07-12-2021
  **/
 @Data
-public class ErrorObject {
+public class ExceptionResponse {
 
     private Date timestamp;
     private int status;

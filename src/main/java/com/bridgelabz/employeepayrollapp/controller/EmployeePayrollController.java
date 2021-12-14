@@ -2,8 +2,11 @@ package com.bridgelabz.employeepayrollapp.controller;
 
 import com.bridgelabz.employeepayrollapp.dto.EmployeeDto;
 import com.bridgelabz.employeepayrollapp.service.EmployeePayrollService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -17,36 +20,35 @@ public class EmployeePayrollController {
     EmployeePayrollService service;
 
     @GetMapping(value = {"/hello"})
-    public String sayHello() {
-        return "Hello and welcome to payroll app";
+    public ResponseEntity<String> sayHello() {
+        return new ResponseEntity<>("Hello", HttpStatus.OK);
     }
 
-    @PostMapping(value = {"/add-Employee"})
-    public String addEmp(
+    @PostMapping(value = {"/add-employee"})
+    public ResponseEntity<String> addEmp(
             @Valid @RequestBody EmployeeDto employeeDto
     ) {
-        return service.addEmp(employeeDto);
+        return new ResponseEntity<>(service.addEmployee(employeeDto), HttpStatus.OK);
     }
 
-    @GetMapping(value = {"get-all-emp"})
-    public List<EmployeeDto> getAllEmployees() {
-        return service.getEmployees();
+    @GetMapping(value = {"get-all-employee"})
+    public ResponseEntity<List<EmployeeDto>> getAllEmployees() {
+        return new ResponseEntity<>(service.getEmployees(), HttpStatus.OK);
     }
 
-
-    @PutMapping("/update/{id}")
-    public String updateEmployee(
+    @PutMapping("/update-employee/{id}")
+    public ResponseEntity<String> updateEmployee(
             @PathVariable int id,
-            @RequestBody EmployeeDto employeeDto
+            @Valid @RequestBody EmployeeDto employeeDto
     ) {
-        return service.updateEmployee(id, employeeDto);
+        service.updateEmployee(employeeDto, id);
+        return new ResponseEntity<>(service.updateEmployee(employeeDto, id), HttpStatus.OK);
     }
 
-
-    @DeleteMapping("/delete/{id}")
-    public String deleteEmployee(
+    @DeleteMapping("/delete-employee/{id}")
+    public ResponseEntity<String> deleteEmployee(
             @PathVariable int id
     ) {
-        return service.deleteEmployee(id);
+        return new ResponseEntity<>(service.deleteEmployee(id), HttpStatus.OK);
     }
 }

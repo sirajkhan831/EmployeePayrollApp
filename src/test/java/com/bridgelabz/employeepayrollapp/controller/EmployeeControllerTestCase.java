@@ -2,59 +2,92 @@ package com.bridgelabz.employeepayrollapp.controller;
 
 import com.bridgelabz.employeepayrollapp.dto.EmployeeDto;
 import com.bridgelabz.employeepayrollapp.service.EmployeePayrollService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.ResponseEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class EmployeeControllerTestCase {
 
-    EmployeeDto employeeDto = new EmployeeDto();
-
     @InjectMocks
-    private EmployeePayrollController employeePayrollController;
+    private EmployeePayrollController controller;
+
     @Mock
-    private EmployeePayrollService employeePayrollService;
+    private EmployeePayrollService service;
+
+    private EmployeeDto employeeDto;
+    private EmployeeDto employeeDto2;
 
     @BeforeEach
     void setUp() {
-        employeeDto.setEid(1);
+        employeeDto = new EmployeeDto();
+        employeeDto.setEmpName("Siraj Khan");
         employeeDto.setEmpGender("M");
         employeeDto.setEmpDepartment("IT");
-        employeeDto.setEmpName("Siraj Khan");
-        employeeDto.setEmpNotes("None");
         employeeDto.setEmpSalary("30000");
-        employeeDto.setEmpStartDate("12/12/21");
+        employeeDto.setEmpStartDate("29/06/2021");
+        employeeDto.setEmpNotes("Note");
+        employeeDto.setEmpImagePath("/pictures/1.jpg");
+        employeeDto2 = new EmployeeDto();
+        employeeDto2.setEmpName("Rahul Singh");
+        employeeDto2.setEmpGender("M");
+        employeeDto2.setEmpDepartment("IT");
+        employeeDto2.setEmpSalary("25000");
+        employeeDto2.setEmpStartDate("02/07/2021");
+        employeeDto2.setEmpNotes("Note");
+        employeeDto2.setEmpImagePath("/pictures/2.jpg");
     }
 
     @Test
-    void whenGetAllEmpCalled_shouldReturnListOfEmpDto() {
-        List<EmployeeDto> employeeDtoList;
-        EmployeeDto dto = new EmployeeDto();
-        dto.setEid(2);
-        dto.setEmpGender("M");
-        dto.setEmpDepartment("IT");
-        dto.setEmpName("Hello World");
-        dto.setEmpNotes("None");
-        dto.setEmpSalary("20000");
-        dto.setEmpStartDate("11/12/21");
-        employeeDtoList = List.of(employeeDto, dto);
-        when(employeePayrollService.getEmployees()).thenReturn(employeeDtoList);
-        List<EmployeeDto> actualResponse = employeePayrollController.getAllEmployees();
+    void givenTwoEmployeeDto_whenGetCalled_shouldReturnListOfEmployee() {
+        List<EmployeeDto> employeeDtoList = new ArrayList<>();
+        service.addEmployee(employeeDto);
+        service.addEmployee(employeeDto2);
+        employeeDtoList.add(employeeDto);
+        employeeDtoList.add(employeeDto2);
+        when(service.getEmployees()).thenReturn(employeeDtoList);
+        List<EmployeeDto> actualResponse = controller.getAllEmployees().getBody();
         for (int i = 0; i < actualResponse.size(); i++) {
-            assertEquals(employeeDtoList.get(i).getEid(), actualResponse.get(i).getEid());
-            assertEquals(employeeDtoList.get(i).getEmpName(), actualResponse.get(i).getEmpName());
-            assertEquals(employeeDtoList.get(i).getEmpGender(), actualResponse.get(i).getEmpGender());
-            assertEquals(employeeDtoList.get(i).getEmpDepartment(), actualResponse.get(i).getEmpDepartment());
-            assertEquals(employeeDtoList.get(i).getEmpSalary(), actualResponse.get(i).getEmpSalary());
+            Assertions.assertEquals(employeeDtoList.get(i).getEmpName(), actualResponse.get(i).getEmpName());
+            Assertions.assertEquals(employeeDtoList.get(i).getEmpGender(), actualResponse.get(i).getEmpGender());
+            Assertions.assertEquals(employeeDtoList.get(i).getEmpSalary(), actualResponse.get(i).getEmpSalary());
         }
+    }
+
+    @Test
+    void givenEmployeeDto_whenAdded_shouldReturnResponseEntity() {
+        String successMessage = "Employee Added Successfully";
+        when(service.addEmployee(employeeDto)).thenReturn(successMessage);
+        ResponseEntity<String> responseEntity = controller.addEmp(employeeDto);
+        Assertions.assertEquals(successMessage, responseEntity.getBody());
+        Assertions.assertEquals(successMessage, responseEntity.getBody());
+    }
+
+    @Test
+    void givenEmployeeDto_whenUpdatedEmployee_shouldReturnResponseEntity() {
+        String successMessage = "Employee Updated Successfully";
+        int id = 1;
+        when(service.updateEmployee(employeeDto, id)).thenReturn(successMessage);
+        ResponseEntity<String> responseEntity = controller.updateEmployee(id, employeeDto);
+        Assertions.assertEquals(successMessage, responseEntity.getBody());
+    }
+
+    @Test
+    void givenEmployeeId_whenDeleted_shouldReturnResponseEntity() {
+        String successMessage = "Employee Deleted Successfully";
+        int id = 1;
+        when(service.deleteEmployee(id)).thenReturn(successMessage);
+        ResponseEntity<String> responseEntity = controller.deleteEmployee(id);
+        Assertions.assertEquals(successMessage, responseEntity.getBody());
     }
 }
