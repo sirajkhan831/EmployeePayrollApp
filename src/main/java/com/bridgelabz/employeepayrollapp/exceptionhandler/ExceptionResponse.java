@@ -6,10 +6,11 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Purpose: Error object to carry data from exception..
+ * Purpose: Exception object to carry data from exception.
  *
+ * @author Siraj
  * @version 1.0
- * @since 07-12-2021
+ * @since 12-12-2021
  **/
 @Data
 public class ExceptionResponse {

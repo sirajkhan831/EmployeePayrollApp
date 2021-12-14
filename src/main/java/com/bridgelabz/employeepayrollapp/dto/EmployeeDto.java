@@ -5,6 +5,13 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+/**
+ * Purpose: Employee DTO to carry data between processes.
+ *
+ * @author Siraj
+ * @version 1.0
+ * @since 05-12-2021
+ **/
 @Data
 public class EmployeeDto {
 
