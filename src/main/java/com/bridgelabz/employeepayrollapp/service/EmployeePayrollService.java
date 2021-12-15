@@ -2,7 +2,7 @@ package com.bridgelabz.employeepayrollapp.service;
 
 import com.bridgelabz.employeepayrollapp.dto.EmployeeDto;
 import com.bridgelabz.employeepayrollapp.entity.EmployeeEntity;
-import com.bridgelabz.employeepayrollapp.exceptionhandler.ResourceException;
+import com.bridgelabz.employeepayrollapp.exception.ResourceException;
 import com.bridgelabz.employeepayrollapp.repository.EmployeePayrollRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +38,7 @@ public class EmployeePayrollService {
      * @return : Returns a String if the object is added successfully.
      */
     public String addEmployee(EmployeeDto employeeDto) {
+        employeeDto.setEid(getEmployees().size() + 1);
         EmployeeEntity employeeEntity = mapper.map(employeeDto, EmployeeEntity.class);
         employeePayrollRepository.save(employeeEntity);
         return EMP_ADDED_SUCCESSFULLY;
@@ -52,7 +53,6 @@ public class EmployeePayrollService {
         List<EmployeeDto> employees = new ArrayList<>();
         for (EmployeeEntity entity : employeePayrollRepository.findAll()) {
             EmployeeDto dto = mapper.map(entity, EmployeeDto.class);
-            dto.setEmpId(entity.getEid());
             employees.add(dto);
         }
         return employees;

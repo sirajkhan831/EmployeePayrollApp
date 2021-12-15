@@ -1,7 +1,8 @@
-package com.bridgelabz.employeepayrollapp.swagger;
+package com.bridgelabz.employeepayrollapp.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
@@ -14,7 +15,9 @@ public class SwaggerConfig {
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("Employee Payroll")
                 .select()
+                .paths(PathSelectors.any())
                 .apis(RequestHandlerSelectors.basePackage("com.bridgelabz.employeepayrollapp"))
                 .build();
     }

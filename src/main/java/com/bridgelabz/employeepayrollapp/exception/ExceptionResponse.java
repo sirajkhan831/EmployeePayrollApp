@@ -1,4 +1,4 @@
-package com.bridgelabz.employeepayrollapp.exceptionhandler;
+package com.bridgelabz.employeepayrollapp.exception;
 
 import lombok.Data;
 

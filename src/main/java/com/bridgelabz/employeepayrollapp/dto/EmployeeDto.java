@@ -15,7 +15,7 @@ import javax.validation.constraints.Pattern;
 @Data
 public class EmployeeDto {
 
-    private int empId;
+    private int eid;
 
     @NotNull
     @Pattern(regexp = "^[A-Za-z ]{3,28}$", message = "The name can not contain any numbers or symbols.")

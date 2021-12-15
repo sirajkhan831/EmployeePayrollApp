@@ -1,4 +1,4 @@
-package com.bridgelabz.employeepayrollapp.exceptionhandler;
+package com.bridgelabz.employeepayrollapp.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

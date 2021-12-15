@@ -2,7 +2,7 @@ package com.bridgelabz.employeepayrollapp.service;
 
 import com.bridgelabz.employeepayrollapp.dto.EmployeeDto;
 import com.bridgelabz.employeepayrollapp.entity.EmployeeEntity;
-import com.bridgelabz.employeepayrollapp.exceptionhandler.ResourceException;
+import com.bridgelabz.employeepayrollapp.exception.ResourceException;
 import com.bridgelabz.employeepayrollapp.repository.EmployeePayrollRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

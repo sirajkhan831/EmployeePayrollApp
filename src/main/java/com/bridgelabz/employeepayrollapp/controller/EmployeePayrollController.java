@@ -20,7 +20,7 @@ import java.util.List;
  * @since 11-12-2021
  **/
 @RestController
-@RequestMapping(value = {"/payroll"})
+@RequestMapping(value = {"/payroll/api"})
 public class EmployeePayrollController {
 
     /**
