@@ -34,7 +34,7 @@ public class EmployeeControllerTestCase {
         employeeDto = new EmployeeDto();
         employeeDto.setEmpName("Siraj Khan");
         employeeDto.setEmpGender("M");
-        employeeDto.setEmpDepartment("IT");
+        employeeDto.setEmpDepartment(List.of("IT"));
         employeeDto.setEmpSalary("30000");
         employeeDto.setEmpStartDate("29/06/2021");
         employeeDto.setEmpNotes("Note");
@@ -42,7 +42,7 @@ public class EmployeeControllerTestCase {
         employeeDto2 = new EmployeeDto();
         employeeDto2.setEmpName("Rahul Singh");
         employeeDto2.setEmpGender("M");
-        employeeDto2.setEmpDepartment("IT");
+        employeeDto2.setEmpDepartment(List.of("IT"));
         employeeDto2.setEmpSalary("25000");
         employeeDto2.setEmpStartDate("02/07/2021");
         employeeDto2.setEmpNotes("Note");

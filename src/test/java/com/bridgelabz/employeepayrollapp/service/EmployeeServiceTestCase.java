@@ -42,7 +42,7 @@ public class EmployeeServiceTestCase {
         employeeDto = new EmployeeDto();
         employeeDto.setEmpName("Siraj Khan");
         employeeDto.setEmpGender("M");
-        employeeDto.setEmpDepartment("IT");
+        employeeDto.setEmpDepartment(List.of("IT"));
         employeeDto.setEmpSalary("30000");
         employeeDto.setEmpStartDate("29/06/2021");
         employeeDto.setEmpNotes("Note");
@@ -50,7 +50,7 @@ public class EmployeeServiceTestCase {
         employeeDto2 = new EmployeeDto();
         employeeDto2.setEmpName("Rahul Singh");
         employeeDto2.setEmpGender("M");
-        employeeDto2.setEmpDepartment("IT");
+        employeeDto2.setEmpDepartment(List.of("IT"));
         employeeDto2.setEmpSalary("25000");
         employeeDto2.setEmpStartDate("02/07/2021");
         employeeDto2.setEmpNotes("Note");
@@ -59,7 +59,7 @@ public class EmployeeServiceTestCase {
         employeeEntity.setEid(1);
         employeeEntity.setEmpName("Siraj Khan");
         employeeEntity.setEmpGender("M");
-        employeeEntity.setEmpDepartment("IT");
+        employeeEntity.setEmpDepartment(List.of("IT"));
         employeeEntity.setEmpSalary("30000");
         employeeEntity.setEmpStartDate("29/06/2021");
         employeeEntity.setEmpNotes("Note");
@@ -68,7 +68,7 @@ public class EmployeeServiceTestCase {
         employeeEntity2.setEid(2);
         employeeEntity2.setEmpName("Rahul Singh");
         employeeEntity2.setEmpGender("M");
-        employeeEntity2.setEmpDepartment("IT");
+        employeeEntity2.setEmpDepartment(List.of("IT"));
         employeeEntity2.setEmpSalary("25000");
         employeeEntity2.setEmpStartDate("02/07/2021");
         employeeEntity2.setEmpNotes("Note");

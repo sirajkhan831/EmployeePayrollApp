@@ -3,6 +3,7 @@ package com.bridgelabz.employeepayrollapp.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Purpose: Employee entity to represents a table in a database
@@ -27,7 +28,9 @@ public class EmployeeEntity {
     private String empGender;
 
     @Column(name = "empDepartment")
-    private String empDepartment;
+    @ElementCollection
+    @CollectionTable(name = "employeeDepartment", joinColumns = @JoinColumn(name = "eid"))
+    private List<String> empDepartment;
 
     @Column(name = "empSalary")
     private String empSalary;

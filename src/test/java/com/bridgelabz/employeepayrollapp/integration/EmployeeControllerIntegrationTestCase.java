@@ -16,6 +16,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.util.List;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(MockitoExtension.class)
@@ -37,7 +39,7 @@ public class EmployeeControllerIntegrationTestCase {
         employeeDto = new EmployeeDto();
         employeeDto.setEmpName("Siraj Khan");
         employeeDto.setEmpGender("M");
-        employeeDto.setEmpDepartment("IT");
+        employeeDto.setEmpDepartment(List.of("IT"));
         employeeDto.setEmpSalary("30000");
         employeeDto.setEmpStartDate("29/06/2021");
         employeeDto.setEmpNotes("Note");

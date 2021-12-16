@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.util.List;
 
 /**
  * Purpose: Employee DTO to carry data between processes.
@@ -26,8 +27,7 @@ public class EmployeeDto {
     private String empGender;
 
     @NotNull
-    @Pattern(regexp = "^[A-Z]{2,5}$", message = "Please use only department initials")
-    private String empDepartment;
+    private List<String> empDepartment;
 
     @NotNull
     @Pattern(regexp = "^[0-9]{4,7}$", message = "Salary can not contain any alphabets and can not be larger than 7 digits")

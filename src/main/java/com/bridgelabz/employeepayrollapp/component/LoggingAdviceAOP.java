@@ -1,6 +1,5 @@
 package com.bridgelabz.employeepayrollapp.component;
 
-import com.bridgelabz.employeepayrollapp.exception.ResourceException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -18,17 +17,15 @@ public class LoggingAdviceAOP {
     Logger log = LoggerFactory.getLogger(LoggingAdviceAOP.class);
 
     @Around("pointCut()")
-    public Object applicationLogger(ProceedingJoinPoint pjp) {
+    public Object applicationLogger(ProceedingJoinPoint pjp) throws Throwable {
         String methodName = pjp.getSignature().getName();
         String className = pjp.getTarget().getClass().toString();
         Object[] array = pjp.getArgs();
-        Object object;
-        try {
-            log.info("Method invoked " + className + " : " + methodName + "()" + "arguments : " + Arrays.toString(array));
-            object = pjp.proceed();
+        Object object = new Object();
+        log.info("Method invoked " + className + " : " + methodName + "()" + "arguments : " + Arrays.toString(array));
+        object = pjp.proceed();
+        if (object != null) {
             log.info(className + " : " + methodName + "()" + "Response : " + object.toString());
-        } catch (Throwable e) {
-            throw new ResourceException();
         }
         return object;
     }

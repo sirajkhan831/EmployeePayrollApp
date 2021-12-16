@@ -64,7 +64,9 @@ public class EmployeePayrollService {
      * @return : Returns a String if the object is added successfully.
      */
     public String addEmployee(EmployeeDto employeeDto) {
-        employeeDto.setEid(eidGenerator());
+        if (!employeePayrollRepository.findById(employeeDto.getEid()).equals(Optional.empty())) {
+            employeeDto.setEid(eidGenerator());
+        }
         EmployeeEntity employeeEntity = mapper.map(employeeDto, EmployeeEntity.class);
         employeePayrollRepository.save(employeeEntity);
         return EMP_ADDED_SUCCESSFULLY;
@@ -86,7 +88,7 @@ public class EmployeePayrollService {
     }
 
     /**
-     * Purpose : ID generator method to generate integer id for entities.
+     * Purpose : EID generator method to generate integer id for entities.
      *
      * @return Returns nearest available ID.
      */
