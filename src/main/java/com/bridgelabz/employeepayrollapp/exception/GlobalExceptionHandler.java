@@ -1,6 +1,5 @@
 package com.bridgelabz.employeepayrollapp.exception;
 
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +19,9 @@ import java.util.*;
  * @since 12-12-2021
  **/
 @ControllerAdvice
-public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    ExceptionResponse object = new ExceptionResponse();
+    ExceptionResponseObject object = new ExceptionResponseObject();
 
     /**
      * Purpose : Returns a response for MethodArgumentNotValidException.
@@ -49,30 +48,13 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
      * Purpose : Exception handler for resource not found exception.
      *
      * @param exception the exception
-     * @param request   the current request
      * @return a {@code ResponseEntity} instance
      */
     @ExceptionHandler(ResourceException.class)
-    public ResponseEntity<Object> handleResourceNotFoundException(ResourceException exception, WebRequest request) {
+    public ResponseEntity<Object> handleResourceNotFoundException(ResourceException exception) {
         object.setTimestamp(new Date());
         object.setStatus(400);
         object.setError(List.of(exception.getMessage()));
-        request.getDescription(false);
         return new ResponseEntity<>(object, HttpStatus.NOT_FOUND);
-    }
-
-    /**
-     * Purpose : Exception handler for empty result access exception.
-     *
-     * @param request the current request
-     * @return a {@code ResponseEntity} instance
-     */
-    @ExceptionHandler(EmptyResultDataAccessException.class)
-    public ResponseEntity<Object> handleEmptyDataException(WebRequest request) {
-        object.setTimestamp(new Date());
-        object.setStatus(400);
-        object.setError(List.of("Employee with the given ID doesn't exists."));
-        request.getDescription(false);
-        return new ResponseEntity<>(object, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

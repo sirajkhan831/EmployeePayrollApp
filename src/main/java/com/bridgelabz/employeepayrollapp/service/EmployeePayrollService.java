@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Purpose: Payroll Service for holding the business logic.
@@ -33,29 +34,15 @@ public class EmployeePayrollService {
     ModelMapper mapper;
 
     /**
-     * Purpose : Adds new employee in the repository.
-     *
-     * @return : Returns a String if the object is added successfully.
-     */
-    public String addEmployee(EmployeeDto employeeDto) {
-        employeeDto.setEid(getEmployees().size() + 1);
-        EmployeeEntity employeeEntity = mapper.map(employeeDto, EmployeeEntity.class);
-        employeePayrollRepository.save(employeeEntity);
-        return EMP_ADDED_SUCCESSFULLY;
-    }
-
-    /**
      * Purpose : Fetches all the employee in the repository.
      *
      * @return : Returns a list of employee.
      */
     public List<EmployeeDto> getEmployees() {
-        List<EmployeeDto> employees = new ArrayList<>();
-        for (EmployeeEntity entity : employeePayrollRepository.findAll()) {
-            EmployeeDto dto = mapper.map(entity, EmployeeDto.class);
-            employees.add(dto);
-        }
-        return employees;
+        return employeePayrollRepository.findAll()
+                .stream()
+                .map(employeeEntity -> mapper.map(employeeEntity, EmployeeDto.class))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -64,8 +51,23 @@ public class EmployeePayrollService {
      * @return : Returns a String is the object is deleted successfully.
      */
     public String deleteEmployee(int id) {
+        if (employeePayrollRepository.findById(id).equals(Optional.empty())) {
+            throw new ResourceException();
+        }
         employeePayrollRepository.deleteById(id);
         return EMP_DELETED_SUCCESSFULLY;
+    }
+
+    /**
+     * Purpose : Adds new employee in the repository.
+     *
+     * @return : Returns a String if the object is added successfully.
+     */
+    public String addEmployee(EmployeeDto employeeDto) {
+        employeeDto.setEid(eidGenerator());
+        EmployeeEntity employeeEntity = mapper.map(employeeDto, EmployeeEntity.class);
+        employeePayrollRepository.save(employeeEntity);
+        return EMP_ADDED_SUCCESSFULLY;
     }
 
     /**
@@ -75,11 +77,27 @@ public class EmployeePayrollService {
      */
     public String updateEmployee(EmployeeDto employeeDto, int id) {
         if (employeePayrollRepository.findById(id).equals(Optional.empty())) {
-            throw new ResourceException("No employee with the given ID found");
+            throw new ResourceException();
         }
         EmployeeEntity employeeEntity = mapper.map(employeeDto, EmployeeEntity.class);
         employeeEntity.setEid(id);
         employeePayrollRepository.save(employeeEntity);
         return EMP_UPDATED_SUCCESSFULLY;
+    }
+
+    /**
+     * Purpose : ID generator method to generate integer id for entities.
+     *
+     * @return Returns nearest available ID.
+     */
+    private int eidGenerator() {
+        int eid = 0;
+        for (EmployeeEntity entity : employeePayrollRepository.findAll()) {
+            eid++;
+            if (eid != entity.getEid()) {
+                return eid;
+            }
+        }
+        return getEmployees().size() + 1;
     }
 }

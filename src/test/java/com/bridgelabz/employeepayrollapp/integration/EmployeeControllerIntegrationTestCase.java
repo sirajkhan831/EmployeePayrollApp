@@ -48,7 +48,7 @@ public class EmployeeControllerIntegrationTestCase {
     @Test
     void whenSentGetRequest_shouldReturnStatusOk() throws Exception {
         mvc.perform(MockMvcRequestBuilders
-                        .get("/payroll/get-all-employee"))
+                        .get("/payroll/api/get-all-employee"))
                 .andExpect(status().isOk())
                 .andReturn();
     }
@@ -56,7 +56,7 @@ public class EmployeeControllerIntegrationTestCase {
     @Test
     void whenSentPostRequest_ShouldReturnStatusOk() throws Exception {
         mvc.perform(MockMvcRequestBuilders
-                        .post("/payroll/add-employee")
+                        .post("/payroll/api/add-employee")
                         .content(jsonRequest).contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk())
                 .andReturn();
@@ -65,7 +65,7 @@ public class EmployeeControllerIntegrationTestCase {
     @Test
     void whenSentDeleteRequest_ShouldReturnStatusOk() throws Exception {
         mvc.perform(MockMvcRequestBuilders
-                        .delete("/payroll/delete-employee/11"))
+                        .delete("/payroll/api/delete-employee/11"))
                 .andExpect(status().isOk())
                 .andReturn();
     }
@@ -73,7 +73,7 @@ public class EmployeeControllerIntegrationTestCase {
     @Test
     void whenSentPutRequest_ShouldReturnStatusOk() throws Exception {
         mvc.perform(MockMvcRequestBuilders
-                        .put("/payroll/update-employee/1")
+                        .put("/payroll/api/update-employee/1")
                         .content(jsonRequest)
                         .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk())
@@ -85,7 +85,7 @@ public class EmployeeControllerIntegrationTestCase {
         employeeDto.setEmpSalary("10");
         jsonRequest = objectMapper.writeValueAsString(employeeDto);
         mvc.perform(MockMvcRequestBuilders
-                        .post("/payroll/add-employee")
+                        .post("/payroll/api/add-employee")
                         .content(jsonRequest).contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isBadRequest())
                 .andReturn();

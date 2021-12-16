@@ -71,7 +71,6 @@ public class EmployeePayrollController {
             @PathVariable int id,
             @Valid @RequestBody EmployeeDto employeeDto
     ) {
-        service.updateEmployee(employeeDto, id);
         return new ResponseEntity<>(service.updateEmployee(employeeDto, id), HttpStatus.OK);
     }
 

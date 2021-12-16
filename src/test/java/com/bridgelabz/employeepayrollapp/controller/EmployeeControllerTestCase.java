@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static org.mockito.Mockito.when;
 
@@ -57,7 +58,7 @@ public class EmployeeControllerTestCase {
         employeeDtoList.add(employeeDto2);
         when(service.getEmployees()).thenReturn(employeeDtoList);
         List<EmployeeDto> actualResponse = controller.getAllEmployees().getBody();
-        for (int i = 0; i < actualResponse.size(); i++) {
+        for (int i = 0; i < Objects.requireNonNull(actualResponse).size(); i++) {
             Assertions.assertEquals(employeeDtoList.get(i).getEmpName(), actualResponse.get(i).getEmpName());
             Assertions.assertEquals(employeeDtoList.get(i).getEmpGender(), actualResponse.get(i).getEmpGender());
             Assertions.assertEquals(employeeDtoList.get(i).getEmpSalary(), actualResponse.get(i).getEmpSalary());

@@ -1,6 +1,6 @@
 package com.bridgelabz.employeepayrollapp.component;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.bridgelabz.employeepayrollapp.exception.ResourceException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -9,21 +9,27 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-@Aspect
+import java.util.Arrays;
+
 @Component
+@Aspect
 public class LoggingAdviceAOP {
 
     Logger log = LoggerFactory.getLogger(LoggingAdviceAOP.class);
 
     @Around("pointCut()")
-    public Object applicationLogger(ProceedingJoinPoint pjp) throws Throwable {
-        ObjectMapper mapper = new ObjectMapper();
+    public Object applicationLogger(ProceedingJoinPoint pjp) {
         String methodName = pjp.getSignature().getName();
         String className = pjp.getTarget().getClass().toString();
         Object[] array = pjp.getArgs();
-        log.info("Method invoked " + className + " : " + methodName + "()" + "arguments : " + mapper.writeValueAsString(array));
-        Object object = pjp.proceed();
-        log.info(className + " : " + methodName + "()" + "Response : " + mapper.writeValueAsString(object));
+        Object object;
+        try {
+            log.info("Method invoked " + className + " : " + methodName + "()" + "arguments : " + Arrays.toString(array));
+            object = pjp.proceed();
+            log.info(className + " : " + methodName + "()" + "Response : " + object.toString());
+        } catch (Throwable e) {
+            throw new ResourceException();
+        }
         return object;
     }
 

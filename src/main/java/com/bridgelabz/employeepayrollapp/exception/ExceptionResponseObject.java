@@ -13,7 +13,7 @@ import java.util.List;
  * @since 12-12-2021
  **/
 @Data
-public class ExceptionResponse {
+public class ExceptionResponseObject {
 
     private Date timestamp;
     private int status;

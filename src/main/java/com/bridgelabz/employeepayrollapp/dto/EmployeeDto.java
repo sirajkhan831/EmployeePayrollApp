@@ -22,7 +22,7 @@ public class EmployeeDto {
     private String empName;
 
     @NotNull
-    @Pattern(regexp = "^[A-Z]{1}$", message = "The gender should be one character in length")
+    @Pattern(regexp = "^[A-Z]$", message = "The gender should be one character in length")
     private String empGender;
 
     @NotNull
