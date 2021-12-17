@@ -116,4 +116,15 @@ public class EmployeeServiceTestCase {
         when(repository.findById(employeeId)).thenReturn(Optional.empty());
         Assertions.assertThrows(ResourceException.class, () -> service.updateEmployee(employeeDto, employeeId));
     }
+
+    @Test
+    void givenAEmployeeDetails_whenUpdateEmployeeIsCalled_shouldReturnSuccessMessage() {
+        int employeeId = 1;
+        String successMessage = "Employee Updated Successfully";
+        when(repository.findById(employeeId)).thenReturn(Optional.of(employeeEntity));
+        when(modelMapper.map(employeeDto, EmployeeEntity.class)).thenReturn(employeeEntity);
+        String actualMessage = service.updateEmployee(employeeDto, employeeId);
+        Assertions.assertEquals(successMessage, actualMessage);
+        verify(repository, times(1)).save(employeeEntity);
+    }
 }

@@ -38,6 +38,7 @@ public class EmployeeDto {
     private String empStartDate;
 
     @NotNull
+    @Pattern(regexp = "^[A-Za-z]{1,100}$")
     private String empNotes;
 
     @NotNull

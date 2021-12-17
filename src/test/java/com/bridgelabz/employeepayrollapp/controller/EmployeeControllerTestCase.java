@@ -71,7 +71,6 @@ public class EmployeeControllerTestCase {
         when(service.addEmployee(employeeDto)).thenReturn(successMessage);
         ResponseEntity<String> responseEntity = controller.addEmp(employeeDto);
         Assertions.assertEquals(successMessage, responseEntity.getBody());
-        Assertions.assertEquals(successMessage, responseEntity.getBody());
     }
 
     @Test

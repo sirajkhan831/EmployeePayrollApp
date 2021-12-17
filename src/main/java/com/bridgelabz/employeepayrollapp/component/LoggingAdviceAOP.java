@@ -10,12 +10,26 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
+/**
+ * Purpose: Logging Advice for handling loggers.
+ *
+ * @author Siraj
+ * @version 1.0
+ * @since 11-12-2021
+ **/
 @Component
 @Aspect
 public class LoggingAdviceAOP {
 
     Logger log = LoggerFactory.getLogger(LoggingAdviceAOP.class);
 
+    /**
+     * Purpose : ApplicationLogger method to format the logs.
+     *
+     * @param pjp : pjp provides all static information about the method
+     * @return : returns object with formatted logs
+     * @throws Throwable : Exception
+     */
     @Around("pointCut()")
     public Object applicationLogger(ProceedingJoinPoint pjp) throws Throwable {
         String methodName = pjp.getSignature().getName();
@@ -30,6 +44,9 @@ public class LoggingAdviceAOP {
         return object;
     }
 
+    /**
+     * Purpose : Method used for pointcut
+     */
     @Pointcut(value = "execution(* com.bridgelabz.employeepayrollapp.*.*.*(..))")
     public void pointCut() {
     }
