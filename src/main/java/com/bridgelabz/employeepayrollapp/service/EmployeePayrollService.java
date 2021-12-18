@@ -4,6 +4,7 @@ import com.bridgelabz.employeepayrollapp.dto.EmployeeDto;
 import com.bridgelabz.employeepayrollapp.entity.EmployeeEntity;
 import com.bridgelabz.employeepayrollapp.exception.ResourceException;
 import com.bridgelabz.employeepayrollapp.repository.EmployeePayrollRepository;
+import org.mindrot.jbcrypt.BCrypt;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
  * @since 11-12-2021
  **/
 @Service
-public class EmployeePayrollService {
+public class EmployeePayrollService implements EmployeePayrollServiceInterface {
 
     private static final String EMP_ADDED_SUCCESSFULLY = "Employee Added Successfully";
     private static final String EMP_DELETED_SUCCESSFULLY = "Employee Deleted Successfully";
@@ -66,6 +67,7 @@ public class EmployeePayrollService {
         if (!employeePayrollRepository.findById(employeeDto.getEid()).equals(Optional.empty())) {
             employeeDto.setEid(eidGenerator());
         }
+        employeeDto.setEmpPassword(BCrypt.hashpw(employeeDto.getEmpPassword(), "$2a$10$g6MB/m7t4QcprJkjuE/s9u"));
         EmployeeEntity employeeEntity = mapper.map(employeeDto, EmployeeEntity.class);
         employeePayrollRepository.save(employeeEntity);
         return EMP_ADDED_SUCCESSFULLY;

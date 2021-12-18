@@ -38,7 +38,10 @@ public class EmployeeDto {
     private String empStartDate;
 
     @NotNull
-    @Pattern(regexp = "^[A-Za-z]{1,100}$")
+    @Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$", message = "Password must contain at least one upper case + lower case english letter, at least one digit, at least one special character and should be minimum eight in length")
+    private String empPassword;
+
+    @NotNull
     private String empNotes;
 
     @NotNull

@@ -47,7 +47,7 @@ public class LoggingAdviceAOP {
     /**
      * Purpose : Method used for pointcut
      */
-    @Pointcut(value = "execution(* com.bridgelabz.employeepayrollapp.*.*.*(..))")
+    @Pointcut(value = "execution(* com.bridgelabz.employeepayrollapp.*.*.*.*(..)) && !execution(* com.bridgelabz.employeepayrollapp.jwt.configuration.*.*(..))")
     public void pointCut() {
     }
 }

@@ -1,29 +1,136 @@
-2021-12-17 08:24:45.440  INFO 18364 --- [main] c.b.e.EmployeePayrollAppApplication      : Starting EmployeePayrollAppApplication using Java 16.0.2 on Siraj with PID 18364 (D:\IDE\IntelliJ\EmployeePayrollApp\target\classes started by siraj in D:\IDE\IntelliJ\EmployeePayrollApp)
-2021-12-17 08:24:45.440  INFO 18364 --- [main] c.b.e.EmployeePayrollAppApplication      : The following profiles are active: dev
-2021-12-17 08:24:46.072  INFO 18364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-12-17 08:24:46.107  INFO 18364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 1 JPA repository interfaces.
-2021-12-17 08:24:46.647  INFO 18364 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-12-17 08:24:46.657  INFO 18364 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-12-17 08:24:46.657  INFO 18364 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.53]
-2021-12-17 08:24:46.737  INFO 18364 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-12-17 08:24:46.737  INFO 18364 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1261 ms
-2021-12-17 08:24:46.842  INFO 18364 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-12-17 08:24:47.098  INFO 18364 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-12-17 08:24:47.137  INFO 18364 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-12-17 08:24:47.173  INFO 18364 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
-2021-12-17 08:24:47.256  INFO 18364 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-12-17 08:24:47.357  INFO 18364 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2021-12-17 08:24:47.798  INFO 18364 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-12-17 08:24:47.803  INFO 18364 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-12-17 08:24:48.247  WARN 18364 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-12-17 08:24:48.357  INFO 18364 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-12-17 08:24:48.357  INFO 18364 --- [main] c.b.e.component.LoggingAdviceAOP         : Method invoked class com.bridgelabz.employeepayrollapp.configuration.SwaggerConfig$$EnhancerBySpringCGLIB$$5c38e339 : productApi()arguments : []
-2021-12-17 08:24:48.367  INFO 18364 --- [main] c.b.e.component.LoggingAdviceAOP         : class com.bridgelabz.employeepayrollapp.configuration.SwaggerConfig$$EnhancerBySpringCGLIB$$5c38e339 : productApi()Response : springfox.documentation.spring.web.plugins.Docket@21251e43
-2021-12-17 08:24:48.607  INFO 18364 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-12-17 08:24:48.607  INFO 18364 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-12-17 08:24:48.619  INFO 18364 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-12-17 08:24:48.637  INFO 18364 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-12-17 08:24:48.747  INFO 18364 --- [main] c.b.e.EmployeePayrollAppApplication      : Started EmployeePayrollAppApplication in 3.617 seconds (JVM running for 3.938)
-2021-12-17 08:24:51.613  INFO 18364 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-12-17 08:24:51.613  INFO 18364 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-12-17 08:24:51.617  INFO 18364 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-18 09:36:16.486  INFO 2304 --- [main] c.b.e.EmployeePayrollAppApplication      : Starting EmployeePayrollAppApplication using Java 16.0.2 on Siraj with PID 2304 (D:\IDE\IntelliJ\EmployeePayrollApp\target\classes started by siraj in D:\IDE\IntelliJ\EmployeePayrollApp)
+2021-12-18 09:36:16.492  INFO 2304 --- [main] c.b.e.EmployeePayrollAppApplication      : The following profiles are active: dev
+2021-12-18 09:36:17.342  INFO 2304 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-18 09:36:17.393  INFO 2304 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 1 JPA repository interfaces.
+2021-12-18 09:36:18.009  INFO 2304 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-18 09:36:18.016  INFO 2304 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-18 09:36:18.016  INFO 2304 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-12-18 09:36:18.102  INFO 2304 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-18 09:36:18.103  INFO 2304 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1571 ms
+2021-12-18 09:36:18.242  INFO 2304 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-18 09:36:18.600  INFO 2304 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-18 09:36:18.639  INFO 2304 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-18 09:36:18.684  INFO 2304 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-12-18 09:36:18.814  INFO 2304 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-18 09:36:18.930  INFO 2304 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-18 09:36:19.438  INFO 2304 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-18 09:36:19.444  INFO 2304 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-18 09:36:19.758  WARN 2304 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-18 09:36:20.015  INFO 2304 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-18 09:36:20.140  INFO 2304 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@64096a41, org.springframework.security.web.context.SecurityContextPersistenceFilter@6c3627c, org.springframework.security.web.header.HeaderWriterFilter@76ccde41, org.springframework.security.web.authentication.logout.LogoutFilter@20724c21, com.bridgelabz.employeepayrollapp.jwt.configuration.JwtAuthenticationFilter@7ef7faa9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4010f232, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1b897ffb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@33de9d85, org.springframework.security.web.session.SessionManagementFilter@1dba7721, org.springframework.security.web.access.ExceptionTranslationFilter@5cbebfba, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1a598e30]
+2021-12-18 09:36:20.382  INFO 2304 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-18 09:36:20.382  INFO 2304 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-18 09:36:20.393  INFO 2304 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-18 09:36:20.408  INFO 2304 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-18 09:36:20.522  INFO 2304 --- [main] c.b.e.EmployeePayrollAppApplication      : Started EmployeePayrollAppApplication in 4.361 seconds (JVM running for 4.817)
+2021-12-18 09:36:27.073  INFO 2304 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-18 09:36:27.073  INFO 2304 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-18 09:36:27.074  INFO 2304 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-18 09:36:38.947  INFO 2304 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-18 09:36:38.947  INFO 2304 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-18 09:36:38.957  INFO 2304 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-18 09:37:31.227  INFO 4560 --- [main] c.b.e.EmployeePayrollAppApplication      : Starting EmployeePayrollAppApplication using Java 16.0.2 on Siraj with PID 4560 (D:\IDE\IntelliJ\EmployeePayrollApp\target\classes started by siraj in D:\IDE\IntelliJ\EmployeePayrollApp)
+2021-12-18 09:37:31.229  INFO 4560 --- [main] c.b.e.EmployeePayrollAppApplication      : The following profiles are active: dev
+2021-12-18 09:37:31.898  INFO 4560 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-18 09:37:31.941  INFO 4560 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 1 JPA repository interfaces.
+2021-12-18 09:37:32.532  INFO 4560 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-18 09:37:32.628  INFO 4560 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1361 ms
+2021-12-18 09:37:32.766  INFO 4560 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-18 09:37:33.037  INFO 4560 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-18 09:37:33.080  INFO 4560 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-18 09:37:33.116  INFO 4560 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-12-18 09:37:33.223  INFO 4560 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-18 09:37:33.336  INFO 4560 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-18 09:37:33.807  INFO 4560 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-18 09:37:33.812  INFO 4560 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-18 09:37:34.122  WARN 4560 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-18 09:37:34.418  INFO 4560 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-18 09:37:34.510  INFO 4560 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs'] with []
+2021-12-18 09:37:34.510  INFO 4560 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/configuration/ui'] with []
+2021-12-18 09:37:34.510  INFO 4560 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2021-12-18 09:37:34.510  INFO 4560 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/configuration/security'] with []
+2021-12-18 09:37:34.511  INFO 4560 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-ui.html'] with []
+2021-12-18 09:37:34.511  INFO 4560 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-12-18 09:37:34.541  INFO 4560 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@58fb5b8f, org.springframework.security.web.context.SecurityContextPersistenceFilter@1fb379e4, org.springframework.security.web.header.HeaderWriterFilter@6c75c5e8, org.springframework.security.web.authentication.logout.LogoutFilter@738ae785, com.bridgelabz.employeepayrollapp.jwt.configuration.JwtAuthenticationFilter@64f49b3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@67b1c3af, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@24381e4a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@51d41b97, org.springframework.security.web.session.SessionManagementFilter@5f26fc4d, org.springframework.security.web.access.ExceptionTranslationFilter@788fa91f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7fb2645b]
+2021-12-18 09:37:34.773  INFO 4560 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-18 09:37:34.773  INFO 4560 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-18 09:37:34.783  INFO 4560 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-18 09:37:34.800  INFO 4560 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-18 09:37:34.916  INFO 4560 --- [main] c.b.e.EmployeePayrollAppApplication      : Started EmployeePayrollAppApplication in 4.016 seconds (JVM running for 4.373)
+2021-12-18 09:37:34.937  INFO 4560 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-18 09:37:34.939  INFO 4560 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-18 09:37:34.945  INFO 4560 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-18 09:37:39.780  INFO 6232 --- [main] c.b.e.EmployeePayrollAppApplication      : Starting EmployeePayrollAppApplication using Java 16.0.2 on Siraj with PID 6232 (D:\IDE\IntelliJ\EmployeePayrollApp\target\classes started by siraj in D:\IDE\IntelliJ\EmployeePayrollApp)
+2021-12-18 09:37:39.782  INFO 6232 --- [main] c.b.e.EmployeePayrollAppApplication      : The following profiles are active: dev
+2021-12-18 09:37:40.491  INFO 6232 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-18 09:37:40.535  INFO 6232 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 1 JPA repository interfaces.
+2021-12-18 09:37:41.068  INFO 6232 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-18 09:37:41.076  INFO 6232 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-18 09:37:41.076  INFO 6232 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-12-18 09:37:41.164  INFO 6232 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-18 09:37:41.164  INFO 6232 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1346 ms
+2021-12-18 09:37:41.293  INFO 6232 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-18 09:37:41.565  INFO 6232 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-18 09:37:41.599  INFO 6232 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-18 09:37:41.634  INFO 6232 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-12-18 09:37:41.728  INFO 6232 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-18 09:37:41.821  INFO 6232 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-18 09:37:42.247  INFO 6232 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-18 09:37:42.253  INFO 6232 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-18 09:37:42.542  WARN 6232 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-18 09:37:42.805  INFO 6232 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-18 09:37:42.903  INFO 6232 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@58fb5b8f, org.springframework.security.web.context.SecurityContextPersistenceFilter@76ccde41, org.springframework.security.web.header.HeaderWriterFilter@788fa91f, org.springframework.security.web.authentication.logout.LogoutFilter@5b977aaa, com.bridgelabz.employeepayrollapp.jwt.configuration.JwtAuthenticationFilter@64f49b3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3e8eea59, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2f51b100, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@51d41b97, org.springframework.security.web.session.SessionManagementFilter@66ce4b4, org.springframework.security.web.access.ExceptionTranslationFilter@62aefc75, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@29280ca6]
+2021-12-18 09:37:43.135  INFO 6232 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-18 09:37:43.136  INFO 6232 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-18 09:37:43.146  INFO 6232 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-18 09:37:43.160  INFO 6232 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-18 09:37:43.265  INFO 6232 --- [main] c.b.e.EmployeePayrollAppApplication      : Started EmployeePayrollAppApplication in 3.775 seconds (JVM running for 4.092)
+2021-12-18 09:37:45.795  INFO 6232 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-18 09:37:45.795  INFO 6232 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-18 09:37:45.796  INFO 6232 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-12-18 09:38:15.345  INFO 6232 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-18 09:38:15.345  INFO 6232 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-18 09:38:15.345  INFO 6232 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-18 09:38:19.947  INFO 10096 --- [main] c.b.e.EmployeePayrollAppApplication      : Starting EmployeePayrollAppApplication using Java 16.0.2 on Siraj with PID 10096 (D:\IDE\IntelliJ\EmployeePayrollApp\target\classes started by siraj in D:\IDE\IntelliJ\EmployeePayrollApp)
+2021-12-18 09:38:19.963  INFO 10096 --- [main] c.b.e.EmployeePayrollAppApplication      : The following profiles are active: dev
+2021-12-18 09:38:20.615  INFO 10096 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-18 09:38:20.662  INFO 10096 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 1 JPA repository interfaces.
+2021-12-18 09:38:21.178  INFO 10096 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-18 09:38:21.193  INFO 10096 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-18 09:38:21.193  INFO 10096 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-12-18 09:38:21.272  INFO 10096 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-18 09:38:21.272  INFO 10096 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1278 ms
+2021-12-18 09:38:21.397  INFO 10096 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-18 09:38:21.647  INFO 10096 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-18 09:38:21.678  INFO 10096 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-18 09:38:21.725  INFO 10096 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-12-18 09:38:21.803  INFO 10096 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-18 09:38:21.912  INFO 10096 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-18 09:38:22.334  INFO 10096 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-18 09:38:22.334  INFO 10096 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-18 09:38:22.662  WARN 10096 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-18 09:38:22.897  INFO 10096 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-18 09:38:22.990  INFO 10096 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1a598e30, org.springframework.security.web.context.SecurityContextPersistenceFilter@288e50c1, org.springframework.security.web.header.HeaderWriterFilter@72321701, org.springframework.security.web.authentication.logout.LogoutFilter@1254a3cd, com.bridgelabz.employeepayrollapp.jwt.configuration.JwtAuthenticationFilter@3083e6ef, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7fba30fe, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@f9d8285, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6768dc74, org.springframework.security.web.session.SessionManagementFilter@3903cfc9, org.springframework.security.web.access.ExceptionTranslationFilter@49c72fb7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@69c335c4]
+2021-12-18 09:38:23.225  INFO 10096 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-18 09:38:23.225  INFO 10096 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-18 09:38:23.225  INFO 10096 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-18 09:38:23.240  INFO 10096 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-18 09:38:23.350  INFO 10096 --- [main] c.b.e.EmployeePayrollAppApplication      : Started EmployeePayrollAppApplication in 3.688 seconds (JVM running for 3.992)
+2021-12-18 09:38:25.709  INFO 10096 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-18 09:38:25.709  INFO 10096 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-18 09:38:25.709  INFO 10096 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-12-18 09:38:47.310  INFO 10096 --- [http-nio-8080-exec-4] c.b.e.component.LoggingAdviceAOP         : Method invoked class com.bridgelabz.employeepayrollapp.jwt.controller.JwtController : generateToken()arguments : [JwtRequest(password=Password@2021, username=Siraj Khan)]
+2021-12-18 09:38:47.379  INFO 10096 --- [http-nio-8080-exec-4] c.b.e.component.LoggingAdviceAOP         : Method invoked class com.bridgelabz.employeepayrollapp.jwt.service.CustomUserDetailsService : loadUserByUsername()arguments : [Siraj Khan]
+2021-12-18 09:38:47.492  INFO 10096 --- [http-nio-8080-exec-4] c.b.e.component.LoggingAdviceAOP         : class com.bridgelabz.employeepayrollapp.jwt.service.CustomUserDetailsService : loadUserByUsername()Response : org.springframework.security.core.userdetails.User [Username=Siraj Khan, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[]]
+2021-12-18 09:38:47.493  INFO 10096 --- [http-nio-8080-exec-4] c.b.e.component.LoggingAdviceAOP         : Method invoked class com.bridgelabz.employeepayrollapp.jwt.service.CustomUserDetailsService : loadUserByUsername()arguments : [Siraj Khan]
+2021-12-18 09:38:47.495  INFO 10096 --- [http-nio-8080-exec-4] c.b.e.component.LoggingAdviceAOP         : class com.bridgelabz.employeepayrollapp.jwt.service.CustomUserDetailsService : loadUserByUsername()Response : org.springframework.security.core.userdetails.User [Username=Siraj Khan, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[]]
+2021-12-18 09:38:47.495  INFO 10096 --- [http-nio-8080-exec-4] c.b.e.component.LoggingAdviceAOP         : Method invoked class com.bridgelabz.employeepayrollapp.jwt.helper.JwtUtil : generateToken()arguments : [org.springframework.security.core.userdetails.User [Username=Siraj Khan, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[]]]
+2021-12-18 09:38:47.513  INFO 10096 --- [http-nio-8080-exec-4] c.b.e.component.LoggingAdviceAOP         : class com.bridgelabz.employeepayrollapp.jwt.helper.JwtUtil : generateToken()Response : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTaXJhaiBLaGFuIiwiZXhwIjoxNjM5ODM2NTI3LCJpYXQiOjE2Mzk4MDA1Mjd9.aaLavqNXz9rtY-ribWGayKIDaQVu_7d426173Nfbvg0
+2021-12-18 09:38:47.514  INFO 10096 --- [http-nio-8080-exec-4] c.b.e.component.LoggingAdviceAOP         : class com.bridgelabz.employeepayrollapp.jwt.controller.JwtController : generateToken()Response : <200 OK OK,eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTaXJhaiBLaGFuIiwiZXhwIjoxNjM5ODM2NTI3LCJpYXQiOjE2Mzk4MDA1Mjd9.aaLavqNXz9rtY-ribWGayKIDaQVu_7d426173Nfbvg0,[]>
+2021-12-18 09:39:06.015  INFO 10096 --- [http-nio-8080-exec-5] c.b.e.component.LoggingAdviceAOP         : Method invoked class com.bridgelabz.employeepayrollapp.jwt.helper.JwtUtil : extractUsername()arguments : [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTaXJhaiBLaGFuIiwiZXhwIjoxNjM5ODM2NTI3LCJpYXQiOjE2Mzk4MDA1Mjd9.aaLavqNXz9rtY-ribWGayKIDaQVu_7d426173Nfbvg0]
+2021-12-18 09:39:06.025  INFO 10096 --- [http-nio-8080-exec-5] c.b.e.component.LoggingAdviceAOP         : class com.bridgelabz.employeepayrollapp.jwt.helper.JwtUtil : extractUsername()Response : Siraj Khan
+2021-12-18 09:39:06.026  INFO 10096 --- [http-nio-8080-exec-5] c.b.e.component.LoggingAdviceAOP         : Method invoked class com.bridgelabz.employeepayrollapp.jwt.service.CustomUserDetailsService : loadUserByUsername()arguments : [Siraj Khan]
+2021-12-18 09:39:06.029  INFO 10096 --- [http-nio-8080-exec-5] c.b.e.component.LoggingAdviceAOP         : class com.bridgelabz.employeepayrollapp.jwt.service.CustomUserDetailsService : loadUserByUsername()Response : org.springframework.security.core.userdetails.User [Username=Siraj Khan, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[]]
+2021-12-18 09:39:23.122  INFO 10096 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-18 09:39:23.124  INFO 10096 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-18 09:39:23.128  INFO 10096 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
