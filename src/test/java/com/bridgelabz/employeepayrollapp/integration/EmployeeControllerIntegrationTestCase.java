@@ -2,12 +2,14 @@ package com.bridgelabz.employeepayrollapp.integration;
 
 import com.bridgelabz.employeepayrollapp.controller.EmployeePayrollController;
 import com.bridgelabz.employeepayrollapp.dto.EmployeeDto;
+import com.bridgelabz.employeepayrollapp.jwt.configuration.JwtAuthenticationFilter;
 import com.bridgelabz.employeepayrollapp.service.EmployeePayrollService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -50,8 +52,7 @@ public class EmployeeControllerIntegrationTestCase {
     @Test
     void whenSentGetRequest_shouldReturnStatusOk() throws Exception {
         mvc.perform(MockMvcRequestBuilders
-                        .get("/payroll/api/get-all-employee"))
-                .andExpect(status().isOk())
+                        .get("/payroll/api/get-all-employee")).andExpect(status().isOk())
                 .andReturn();
     }
 

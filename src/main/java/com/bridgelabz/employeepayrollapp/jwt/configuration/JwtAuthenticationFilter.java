@@ -18,6 +18,7 @@ import java.io.IOException;
 
 /**
  * Purpose : JWT Authentication filter to verify all links for tokens.
+ *
  * @author Siraj
  * @version 1.0
  * @since 17/12/2021
@@ -32,30 +33,21 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private JwtUtil jwtUtil;
 
     /**
-     * Purpose :
-     * @param request : request passed by user
-     * @param response : response to send to user
+     * Purpose : filter method to manage url authentication
+     *
+     * @param request     : request passed by user
+     * @param response    : response to send to user
      * @param filterChain : responsible for filtering
      *                    unauthorized requests
      * @throws ServletException : throws exception if token is null
-     * @throws IOException : IO exception thrown if received improper data
+     * @throws IOException      : IO exception thrown if received improper data
      */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-
-        String requestTokenHeader = request.getHeader("token");
-        String username = null;
-        String jwtToken;
-
-        if (requestTokenHeader != null) {
-            jwtToken = requestTokenHeader;
-            try {
-                username = jwtUtil.extractUsername(jwtToken);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (request.getHeader("token") != null) {
+            String username = jwtUtil.extractUsername(request.getHeader("token"));
             assert username != null;
-            UserDetails userDetails = this.customUserDetailsService.loadUserByUsername(username);
+            UserDetails userDetails = customUserDetailsService.loadUserByUsername(username);
             if (SecurityContextHolder.getContext().getAuthentication() == null) {
                 UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 token.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));

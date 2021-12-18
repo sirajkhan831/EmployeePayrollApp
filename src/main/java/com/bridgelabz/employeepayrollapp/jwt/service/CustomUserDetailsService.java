@@ -11,12 +11,26 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+/**
+ * Purpose : User service to manage users.
+ *
+ * @author Siraj
+ * @version 1.0
+ * @since 17/12/2021
+ */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
     private EmployeePayrollRepository repository;
 
+    /**
+     * Purpose : Method used to verify the DB with the given username
+     *
+     * @param username : Username of the user
+     * @return : Returns a user detail
+     * @throws UsernameNotFoundException : Exception thrown if user is not found.
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         String name = "Admin";

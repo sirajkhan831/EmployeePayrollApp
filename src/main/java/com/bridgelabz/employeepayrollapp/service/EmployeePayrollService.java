@@ -82,6 +82,7 @@ public class EmployeePayrollService implements EmployeePayrollServiceInterface {
         if (employeePayrollRepository.findById(id).equals(Optional.empty())) {
             throw new ResourceException();
         }
+        employeeDto.setEmpPassword(BCrypt.hashpw(employeeDto.getEmpPassword(), "$2a$10$g6MB/m7t4QcprJkjuE/s9u"));
         EmployeeEntity employeeEntity = mapper.map(employeeDto, EmployeeEntity.class);
         employeeEntity.setEid(id);
         employeePayrollRepository.save(employeeEntity);
