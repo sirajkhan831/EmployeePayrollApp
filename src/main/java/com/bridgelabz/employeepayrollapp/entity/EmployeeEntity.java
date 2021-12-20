@@ -29,7 +29,7 @@ public class EmployeeEntity {
 
     @Column(name = "empDepartment")
     @ElementCollection
-    @CollectionTable(name = "employeeDepartment", joinColumns = @JoinColumn(name = "eid"))
+    @CollectionTable(name = "employeeDepartment", joinColumns = @JoinColumn(name = "id"))
     private List<String> empDepartment;
 
     @Column(name = "empSalary")
@@ -37,6 +37,9 @@ public class EmployeeEntity {
 
     @Column(name = "empStartDate")
     private String empStartDate;
+
+    @Column(name = "empPassword")
+    private String empPassword;
 
     @Column(name = "empNotes")
     private String empNotes;

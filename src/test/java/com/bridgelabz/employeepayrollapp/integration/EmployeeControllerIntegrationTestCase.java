@@ -43,6 +43,7 @@ public class EmployeeControllerIntegrationTestCase {
         employeeDto.setEmpSalary("30000");
         employeeDto.setEmpStartDate("29/06/2021");
         employeeDto.setEmpNotes("Note");
+        employeeDto.setEmpPassword("Password@2021");
         employeeDto.setEmpImagePath("/pictures/1.jpg");
         jsonRequest = objectMapper.writeValueAsString(employeeDto);
     }
